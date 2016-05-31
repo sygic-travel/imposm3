@@ -144,7 +144,7 @@ func (tm *tagMatcher) MatchWay(way *element.Way) []Match {
 		}
 	} else { // match way as linestring
 		if way.IsClosed() {
-			if way.Tags["area"] == "yes" {
+			if way.Tags["area"] != "no" {
 				return nil
 			}
 			return tm.match(way.Tags, true, false)
